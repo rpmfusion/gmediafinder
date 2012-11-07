@@ -1,8 +1,8 @@
-%global gitrev 302a1a0
+%global gitrev  203ab96
 
 Name:           gmediafinder
 Version:        1.0.4
-Release:        4.%{gitrev}%{?dist}
+Release:        5.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -100,6 +100,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %dir %{_datadir}/pyshared
 
 %changelog
+* Thu Nov 1 2012 Martin Gansser <linux4martin@gmx.de> 1.0.4-5.203ab96
+- rebuild for new git version
+
 * Wed Oct 31 2012 Martin Gansser <linux4martin@gmx.de> 1.0.4-4.302a1a0
 - added pyshared as separate %%dir
 - added %%gitrev in %%changelog revision
