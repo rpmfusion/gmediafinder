@@ -1,8 +1,8 @@
-%global gitrev  203ab96
+%global gitrev 44eec93
 
 Name:           gmediafinder
-Version:        1.0.4
-Release:        5.%{gitrev}%{?dist}
+Version:        1.0.5
+Release:        1.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -41,6 +41,7 @@ Requires:       python-distutils-extra
 Requires:       python-mechanize
 Requires:       python-virtkey
 Requires:       python-configobj
+Requires:       python-xlib
 Requires:       pywebkitgtk
 Requires:       pygtk2-libglade
 Requires:       projectM-libvisual
@@ -100,8 +101,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %dir %{_datadir}/pyshared
 
 %changelog
-* Thu Nov 1 2012 Martin Gansser <linux4martin@gmx.de> 1.0.4-5.203ab96
-- rebuild for new git version
+* Sun May 12 2013 Martin Gansser <linux4martin@gmx.de> 1.0.5-1.44eec93
+- added python-xlib requirement
+- rebuild for new release
 
 * Wed Oct 31 2012 Martin Gansser <linux4martin@gmx.de> 1.0.4-4.302a1a0
 - added pyshared as separate %%dir
