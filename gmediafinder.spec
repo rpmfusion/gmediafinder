@@ -2,7 +2,7 @@
 
 Name:           gmediafinder
 Version:        1.5.1
-Release:        1.%{gitrev}%{?dist}
+Release:        2.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -41,7 +41,6 @@ Requires:       python-distutils-extra
 Requires:       python-mechanize
 Requires:       python-virtkey
 Requires:       python-configobj
-Requires:       python-xlib
 Requires:       pywebkitgtk
 Requires:       pygtk2-libglade
 Requires:       projectM-libvisual
@@ -68,7 +67,7 @@ cp -R data/img/throbber.png %{buildroot}%{_datadir}/%{name}/
 # reported upstream
 # https://github.com/smolleyes/gmediafinder2/issues/2
 chmod a+x %{buildroot}/usr/share/gmediafinder/scripts/get_stream.py
-for file in %{buildroot}%{python_sitelib}/GmediaFinder/{lib/checklinks,lib/engines/__init__,lib/get_stream,__init__,lib/downloads/__init__,lib/Translation,lib/__init__,lib/engines/main,lib/player/__init__,gmediafinder,lib/pykey}.py; do
+for file in %{buildroot}%{python_sitelib}/GmediaFinder/{lib/checklinks,lib/engines/__init__,lib/get_stream,__init__,lib/downloads/__init__,lib/Translation,lib/__init__,lib/engines/main,lib/player/__init__,gmediafinder,lib/pykey,lib/engines/Youtube/__init__}.py; do
     chmod a+x $file
 done
 
@@ -86,8 +85,6 @@ if [ -x /usr/bin/gtk-update-icon-cache ]; then
    /usr/bin/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor &>/dev/null || :
 fi
 
-desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
-
 %files -f %{name}.lang
 %doc CHANGELOG gpl-2.0.txt README VERSION
 %{_bindir}/*
@@ -101,6 +98,11 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %dir %{_datadir}/pyshared
 
 %changelog
+* Wed May 29 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-2.26f89cf
+- removed %%desktop-file-validate
+- make Youtube engine file executable
+- removed  unnecessary requirement python-xlib
+
 * Wed May 29 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-1.26f89cf
 - rebuild for new release
 
