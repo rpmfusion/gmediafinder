@@ -2,7 +2,7 @@
 
 Name:           gmediafinder
 Version:        1.5.1
-Release:        2.%{gitrev}%{?dist}
+Release:        3.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -74,16 +74,16 @@ done
 %find_lang %{name}
 
 %post
-update-desktop-database -q %{_datadir}/applications &> /dev/null || :
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-   /usr/bin/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor &>/dev/null || :
-fi
+/bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
 %postun
-update-desktop-database -q %{_datadir}/applications &> /dev/null || :
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-   /usr/bin/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor &>/dev/null || :
+if [ $1 -eq 0 ] ; then
+    /bin/touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
+
+%posttrans
+/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files -f %{name}.lang
 %doc CHANGELOG gpl-2.0.txt README VERSION
@@ -98,6 +98,10 @@ fi
 %dir %{_datadir}/pyshared
 
 %changelog
+* Wed May 29 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-3.26f89cf
+- changed %%post section
+- added %%posttrans section
+
 * Wed May 29 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-2.26f89cf
 - removed %%desktop-file-validate
 - make Youtube engine file executable
