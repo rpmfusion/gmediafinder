@@ -1,7 +1,7 @@
-%global gitrev 44eec93
+%global gitrev 26f89cf
 
 Name:           gmediafinder
-Version:        1.0.5
+Version:        1.5.1
 Release:        1.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
@@ -101,6 +101,9 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
 %dir %{_datadir}/pyshared
 
 %changelog
+* Wed May 29 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-1.26f89cf
+- rebuild for new release
+
 * Sun May 12 2013 Martin Gansser <linux4martin@gmx.de> 1.0.5-1.44eec93
 - added python-xlib requirement
 - rebuild for new release
