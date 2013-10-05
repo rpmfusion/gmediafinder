@@ -1,8 +1,8 @@
-%global gitrev 26f89cf
+%global gitrev 694694c
 
 Name:           gmediafinder
 Version:        1.5.1
-Release:        3.%{gitrev}%{?dist}
+Release:        4.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -98,6 +98,9 @@ fi
 %dir %{_datadir}/pyshared
 
 %changelog
+* Sat Oct 5 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-4.694694c
+- rebuild 
+
 * Wed May 29 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-3.26f89cf
 - changed %%post section
 - added %%posttrans section
