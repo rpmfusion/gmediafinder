@@ -2,7 +2,7 @@
 
 Name:           gmediafinder
 Version:        1.5.1
-Release:        4.%{gitrev}%{?dist}
+Release:        5.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -98,6 +98,9 @@ fi
 %dir %{_datadir}/pyshared
 
 %changelog
+* Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 1.5.1-5.694694c
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Sat Oct 5 2013 Martin Gansser <linux4martin@gmx.de> 1.5.1-4.694694c
 - rebuild 
 
