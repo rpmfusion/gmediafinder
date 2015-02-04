@@ -2,7 +2,7 @@
 
 Name:           gmediafinder
 Version:        1.5.1
-Release:        5.%{gitrev}%{?dist}
+Release:        6.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -29,6 +29,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  python-distutils-extra
 BuildRequires:  intltool
 Requires:       gnome-icon-theme
+Requires:       gnome-icon-theme-legacy
 Requires:       gstreamer-ffmpeg
 Requires:       gstreamer-python
 Requires:       gstreamer-plugins-bad
@@ -41,6 +42,7 @@ Requires:       python-distutils-extra
 Requires:       python-mechanize
 Requires:       python-virtkey
 Requires:       python-configobj
+Requires:       python-xlib
 Requires:       pywebkitgtk
 Requires:       pygtk2-libglade
 Requires:       projectM-libvisual
@@ -86,7 +88,8 @@ fi
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files -f %{name}.lang
-%doc CHANGELOG gpl-2.0.txt README VERSION
+%license gpl-2.0.txt
+%doc CHANGELOG README VERSION
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
 %{python_sitelib}/*/* 
@@ -98,6 +101,11 @@ fi
 %dir %{_datadir}/pyshared
 
 %changelog
+* Wed Feb 04 2015 Martin Gansser <linux4martin@gmx.de> 1.5.1-6.694694c
+- added BR gnome-icon-theme-legacy for fc21
+- added BR python-xlib for fc21
+- mark license files as %%license where available
+
 * Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 1.5.1-5.694694c
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
