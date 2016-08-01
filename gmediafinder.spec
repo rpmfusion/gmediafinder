@@ -2,7 +2,7 @@
 
 Name:           gmediafinder
 Version:        1.5.1
-Release:        6.%{gitrev}%{?dist}
+Release:        7.%{gitrev}%{?dist}
 Summary:        A program to stream an/or download files
 License:        GPLv2
 Group:          Applications/Internet
@@ -101,6 +101,10 @@ fi
 %dir %{_datadir}/pyshared
 
 %changelog
+* Mon Aug 01 2016 Sérgio Basto <sergio@serjux.com> - 1.5.1-7.694694c
+-
+  https://fedoraproject.org/wiki/Changes/Automatic_Provides_for_Python_RPM_Packages
+
 * Wed Feb 04 2015 Martin Gansser <linux4martin@gmx.de> 1.5.1-6.694694c
 - added BR gnome-icon-theme-legacy for fc21
 - added BR python-xlib for fc21
